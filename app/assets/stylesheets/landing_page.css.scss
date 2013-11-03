@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+* {
+  font-family: 'Arial';
+}
+
+.byline {
+  background-color: #eee;
+  padding: 20px 0px;
+  width: 300px;
+  margin: 45px;
+  text-align: center;
+}
+
+.column1 {
+  width: 60%;
+  float: left;
+}
+
+.column2 {
+  width: 40%;
+  margin-left: 60%;
+}
+
+.clear {
+  clear: both;
+}
+
+.description {
+  margin-left: 70px;
+  width: 254px;
+  line-height: 1.8em;
+  font-size: 14px;
+}
+
+.call-to-action {
+  font-size: 18px;
+  color: #2cf886;
+  font-weight: bold;
+  margin-left: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: block;
+  cursor: pointer;
+  width: 300px;
+}
