@@ -1,0 +1,29 @@
+nav {
+  width: 100%;
+  .givespend-banner {
+    max-width: 200px;
+    margin: 30px 75px;
+  }
+}
+footer {
+  background-color: black;
+  height: 30px;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99999;
+  color: white;
+  vertical-align: middle;
+  font-size: 19px;
+  font-weight: 200;
+  text-align: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:visited {
+    color: white;
+  }
+}
