@@ -1,4 +1,16 @@
 form.new_user {
   line-height: 1.5em;
   margin: 70px;
+  input {
+    border: none;
+    background-color: #0FECAE;
+    font-size: 16px;
+    padding: 12px;
+    height: 20px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+  input[type="submit"] {
+    height: 40px;
+  }
 }

@@ -1,0 +1,7 @@
+<div class="progress-bar">
+  <% (1..size).each do |count| %>
+    <div class="progress-dot <%= 'complete' if count <= status %>">
+      <%= count %>
+    </div>
+  <% end %>
+</div>
