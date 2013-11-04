@@ -11,7 +11,16 @@
     <%= image_tag "givespend-banner.png", class: "givespend-banner" %>
   </nav>
   <div class="container">
-    <%= yield %>
+    <div class="column1">
+      <%= yield %>
+    </div>
+    </div>
+    <div class="column2">
+      <div class="canvas-container">
+        <canvas id="theCanvas"></canvas>
+      </div>
+    </div>
+    <div class="clear"></div>
   </div>
   <footer>
     <a>ABOUT</a> | <a>CONTACT</a>
