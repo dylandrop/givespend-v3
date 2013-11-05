@@ -1,7 +1,8 @@
 GivespendV3::Application.routes.draw do
-  resources :verifications, only: [:new, :create]
+  resources :verifications, only: [:new]
+  resources :items, only: [:new, :create, :show]
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "authentications" }
 
   get "pages/index"
 

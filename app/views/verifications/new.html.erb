@@ -1,2 +1,5 @@
-<h1>Verifications#new</h1>
-<p>Find me in app/views/verifications/new.html.erb</p>
+<%= render partial: "layouts/progress_bar", locals: { status: 2, size: 3 } %><br><br>
+<div class="description">
+  We need you to create a Stripe account so we can pay out to your bank account. Stripe is Givespend's payment processor. You will be briefly redirected to Stripe, and returned to Givespend once you're done.
+</div>
+<%= link_to "Verify with Stripe", omniauth_authorize_path(:user, :stripe_connect, current_user.stripe_parameters), class: 'call-to-action' %>

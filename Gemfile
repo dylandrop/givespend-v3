@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-stripe-connect'
+gem 'stripe'
 
 group :development do
   gem 'mailcatcher'
