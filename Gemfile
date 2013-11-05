@@ -8,6 +8,13 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 
+group :development do
+  gem 'mailcatcher'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

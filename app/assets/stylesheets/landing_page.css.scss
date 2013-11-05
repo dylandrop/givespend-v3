@@ -2,9 +2,6 @@
   margin: 0;
   padding: 0;
 }
-* {
-  font-family: 'Arial';
-}
 
 .byline {
   background-color: #0FECAE;
@@ -33,6 +30,7 @@
   width: 254px;
   line-height: 1.8em;
   font-size: 14px;
+  font-weight: normal;
 }
 
 .call-to-action {
