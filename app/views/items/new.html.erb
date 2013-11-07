@@ -1,3 +1,34 @@
 <div class="description">
   Alright! Now that you're all set up, let's load up some information on what you'll be listing.
 </div>
+
+<%= form_for(@item) do |f| %>
+  <div>
+    <%= f.label :name, "Name of item listed" %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :price, "Price, in the format XX.XX" %><br>
+    <%= f.text_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :description, "Description of your item" %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :nonprofit_url, "Name/URL of nonprofit you wish to support" %><br>
+    <%= f.text_field :nonprofit_url %>
+  </div>
+
+  <div>
+    <%= f.label :nonprofit_percentage, "Percentage of revenue to go to nonprofit" %><br>
+    <%= f.text_field :nonprofit_percentage %>
+  </div>
+
+  <div>
+    <%= f.submit "Create this item" %>
+  </div>
+<% end %>

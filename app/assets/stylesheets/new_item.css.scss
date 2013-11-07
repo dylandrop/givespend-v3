@@ -1,0 +1,21 @@
+form.new_item {
+  line-height: 1.5em;
+  margin: 70px;
+  input, textarea {
+    border: none;
+    background-color: #0FECAE;
+    font-size: 16px;
+    padding: 12px;
+    height: 20px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 219px;
+  }
+  textarea {
+    height: 200px;
+  }
+  input[type="submit"] {
+    height: 40px;
+    cursor: pointer;
+  }
+}
