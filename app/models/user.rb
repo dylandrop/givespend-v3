@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  has_many :items
+
   def stripe_parameters
     {
       'stripe_user[business_type]' => 'sole_prop',

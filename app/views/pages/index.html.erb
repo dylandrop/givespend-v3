@@ -7,5 +7,5 @@
 <div class="infoline">
 </div>
 <%= link_to new_user_registration_path, class: "call-to-action" do %>
-  GET STARTED NOW
+  <%= current_user ? "GET STARTED NOW" : "CONTINUE" %>
 <% end %>
