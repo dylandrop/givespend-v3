@@ -25,10 +25,16 @@
 
   <div>
     <%= f.label :nonprofit_percentage, "Percentage of revenue to go to the nonprofit" %><br>
-    <%= f.text_field :nonprofit_percentage, pattern: '([0-9]+\.)?[0-9]+' %>
+    <%= f.text_field :nonprofit_percentage %>
   </div>
 
   <div>
     <%= f.submit "Done" %>
   </div>
 <% end %>
+
+<script>
+  window.onload = function() {
+    new ItemForm();
+  };
+</script>
