@@ -2,7 +2,10 @@
   <div class="message-to-user">
     Here's what your item will look like to everyone else.
     <br><br>
-    To share this on Facebook or Twitter, simply copy-paste this link: <%= item_url(@item) %>
+    You can <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<%= item_url(@item) %>">share this on Facebook</a> or <a href="http://twitter.com/home?status=Check%20out%20<%= item_url(@item) %>">share this on Twitter</a>.
+    
+    <br><br>
+    Alternatively, to share elsewhere, simply copy-paste this link: <%= item_url(@item) %>.
   </div>
 <% end %>
 
