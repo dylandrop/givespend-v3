@@ -33,7 +33,7 @@
   font-weight: normal;
 }
 
-.call-to-action {
+.call-to-action, .nav-bar-link {
   font-size: 18px;
   color: #0FECAE;
   text-decoration: none;
@@ -44,4 +44,11 @@
   display: block;
   cursor: pointer;
   width: 300px;
+}
+.nav-bar-link {
+  display: inline-block;
+  width: auto;
+  padding: 0;
+  margin-left: 70px;
+  margin-top: 80px;
 }

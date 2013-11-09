@@ -9,7 +9,17 @@
 <body>
 
   <nav>
-    <%= image_tag "givespend-banner.png", class: "givespend-banner" %>
+    <div style="float: left;">
+      <%= image_tag "givespend-banner.png", class: "givespend-banner" %>
+    </div>
+    <div style="float: left;">
+      <% unless current_user %>
+        <%= link_to "SIGN IN", new_user_session_path, class: "nav-bar-link" %>
+      <% else %>
+        <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-bar-link" %>
+      <% end %>
+    </div>
+    <div class="clear"></div>
   </nav>
   <div class="container">
     <div class="column1">

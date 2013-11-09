@@ -1,6 +1,9 @@
 form.new_item {
   line-height: 1.5em;
   margin: 70px;
+  div {
+    width: 230px;
+  }
   input, textarea {
     border: none;
     background-color: #0FECAE;
@@ -17,5 +20,6 @@ form.new_item {
   input[type="submit"] {
     height: 40px;
     cursor: pointer;
+    width: 80px;
   }
 }
