@@ -29,6 +29,13 @@
   </div>
 
   <div>
+    <%= f.fields_for :image, :html => { :multipart => true } do |image_fields| %>
+      <%= f.label :image, "Upload an image" %>
+      <%= image_fields.file_field :content %>
+    <% end %>
+  </div>
+
+  <div>
     <%= f.submit "Done" %>
   </div>
 <% end %>

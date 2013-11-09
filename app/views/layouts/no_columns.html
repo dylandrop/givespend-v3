@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GivespendV3</title>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav>
+    <div style="float: left;">
+      <%= image_tag "givespend-banner.png", class: "givespend-banner" %>
+    </div>
+    <div style="float: left;">
+      <% unless current_user %>
+        <%= link_to "SIGN IN", new_user_session_path, class: "nav-bar-link" %>
+      <% else %>
+        <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-bar-link" %>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+  </nav>
+  <div class="container">
+    <div class="central">
+      <%= yield %>
+    </div>
+  </div>
+  <footer>
+    <a>ABOUT</a> | <a>CONTACT</a>
+  </footer>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

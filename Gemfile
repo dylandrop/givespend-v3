@@ -10,6 +10,9 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-stripe-connect'
 gem 'stripe'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'aws-s3'
 
 group :development do
   gem 'mailcatcher'

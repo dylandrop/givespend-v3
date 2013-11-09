@@ -144,8 +144,10 @@ function drawVines(context, x, y, iterations) {
   return interval;
 }
 var canvas = document.getElementById("theCanvas");
-canvas.width = canvas.parentNode.clientWidth;
-canvas.height = canvas.parentNode.clientHeight;
-var context = canvas.getContext("2d");
-// drawLeaf(context, canvas.width/2, canvas.height/2, 30, 30, Math.PI/3, 'green');
-drawVines(context, canvas.width/2, canvas.height/2, 400);
+if(canvas != undefined) {
+  canvas.width = canvas.parentNode.clientWidth;
+  canvas.height = canvas.parentNode.clientHeight;
+  var context = canvas.getContext("2d");
+  // drawLeaf(context, canvas.width/2, canvas.height/2, 30, 30, Math.PI/3, 'green');
+  drawVines(context, canvas.width/2, canvas.height/2, 400);
+}

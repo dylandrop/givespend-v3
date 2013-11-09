@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+  layout 'no_columns', only: :show
   def new
     @item = Item.new(params[:item])
+    @item.build_image
   end
 
   def create
@@ -10,5 +12,9 @@ class ItemsController < ApplicationController
     else
       render :new, @item
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 end
