@@ -1,4 +1,4 @@
-<% if current_user.items.include? @item %>
+<% if current_user && current_user.items.include?(@item) %>
   <div class="message-to-user">
     Here's what your item will look like to everyone else.
     <br><br>
@@ -16,11 +16,15 @@
   <h2><%= @item.name %></h2>
 
   <div class="item-description">
-    <%= @item.description %>
+    <i>($<%= @item.price_in_dollars %>)</i> <%= @item.description %>
   </div>
 
   <div class="byline centered">
     <%= @item.nonprofit_percentage %>% of each purchase goes to benefit <%= @item.nonprofit_url %>.
   </div>
+  
+  <a class="purchase-link">
+    Purchase now
+  </a>
 </div>
 <br><br><br><br>
