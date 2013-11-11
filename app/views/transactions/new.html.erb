@@ -6,9 +6,9 @@
   You will be charged $<%= @transaction.item.price_in_dollars %>
 </div>
 
-<%= form_tag({controller: 'transactions', action: 'create'}, method: :post, id: "checkout_card_form", class: 'form-horizontal') %>
+<%= form_for(@transaction, html: {id: "checkout_card_form", class: 'form-horizontal'}) do |form| %>
   <%= hidden_field_tag :stripe_card_token %>
-
+  <%= form.hidden_field :item_id, value: @transaction.item_id %>
   <div>
     <%= label_tag :email, "Email", class: 'control-label', for: 'email' %><br>
     <%= text_field_tag :email %>
@@ -31,9 +31,9 @@
   </div>
 
   <div>
-    <%= submit_tag "Submit" %>
+    <%= form.submit "Submit" %>
   </div>
-</form>
+<% end %>
 <div id="stripe_error">
   <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 </div>
