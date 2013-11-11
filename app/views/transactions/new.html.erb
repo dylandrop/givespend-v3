@@ -1,0 +1,39 @@
+<div class="description">
+  All we need is your credit card info to complete your purchase. Givespend does not store your credit card information, but our payment processor Stripe, does. Givespend's service is free to use, so you will only be charged the price of the item. Our payment processor charges 2.9% + $0.30, which is taken out of the revenue of the transaction.
+</div>
+
+<div class="byline">
+  You will be charged $<%= @transaction.item.price_in_dollars %>
+</div>
+
+<%= form_tag({controller: 'transactions', action: 'create'}, method: :post, id: "checkout_card_form", class: 'form-horizontal') %>
+  <%= hidden_field_tag :stripe_card_token %>
+
+  <div>
+    <%= label_tag :email, "Email", class: 'control-label', for: 'email' %><br>
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :card_number, "Credit Card Number", class: 'control-label', for: 'card_number' %><br>
+    <%= text_field_tag :card_number, nil, name: nil %>
+  </div>
+
+  <div>
+    <%= label_tag :card_code, "Security Code on Card (CVV)", class: 'control-label', for: 'card_code' %><br>
+    <%= text_field_tag :card_code, nil, name: nil %>
+  </div>
+
+  <div>
+    <%= label_tag :card_month, "Card Expiration", class: 'control-label', for: 'card_month' %><br>
+    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", style: "width: 150px"} %>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", style: "width: 66px"} %>
+  </div>
+
+  <div>
+    <%= submit_tag "Submit" %>
+  </div>
+</form>
+<div id="stripe_error">
+  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+</div>

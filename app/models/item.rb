@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   attr_accessible :description, :name, :nonprofit_percentage, :nonprofit_url, :price,
     :image_attributes
   belongs_to :user
+  has_many :transactions
   has_one :image, as: :imageable
   before_save :price_to_cents
   accepts_nested_attributes_for :image

@@ -23,8 +23,6 @@
     <%= @item.nonprofit_percentage %>% of each purchase goes to benefit <%= @item.nonprofit_url %>.
   </div>
   
-  <a class="purchase-link">
-    Purchase now
-  </a>
+  <%= link_to "Purchase now", new_transaction_path(item_id: @item.id), class: "purchase-link" %>
 </div>
 <br><br><br><br>
