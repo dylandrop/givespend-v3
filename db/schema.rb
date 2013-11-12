@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111202033) do
+ActiveRecord::Schema.define(:version => 20131112014702) do
 
   create_table "images", :force => true do |t|
     t.integer  "imageable_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20131111202033) do
     t.string   "stripe_customer_token"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.string   "shipping_info"
+    t.string   "email"
   end
 
   add_index "transactions", ["item_id"], :name => "index_transactions_on_item_id"
