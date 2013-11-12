@@ -1,4 +1,4 @@
-Good job! You just sold "<%= @transaction.item.name %>" on Givespend. In doing so, you've provided <%= @transaction.item.nonprofit_url %> with a little more funding. Please refer below for the delivery details:
+Good job! You just sold "<%= @transaction.item.name %>" on Givespend. In doing so, you've raised $<%= @transaction.item.amount_raised_in_dollars %> for <%= @transaction.item.nonprofit_url %>. Please refer below for the delivery details:
 <br><br>
 <%= @transaction.email %>
 <br>

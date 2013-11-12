@@ -11,6 +11,14 @@ class Item < ActiveRecord::Base
     '%.2f' % (price.to_i/100.0)
   end
 
+  def amount_raised_for_nonprofit
+    (price * nonprofit_percentage / 100.0).to_i
+  end
+
+  def amount_raised_in_dollars
+    '%.2f' % (amount_raised_for_nonprofit / 100.0)
+  end
+
   private
 
   def price_to_cents
