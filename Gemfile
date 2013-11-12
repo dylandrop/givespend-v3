@@ -13,6 +13,7 @@ gem 'stripe'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'aws-s3'
+gem 'mailjet'
 
 group :development do
   gem 'mailcatcher'
