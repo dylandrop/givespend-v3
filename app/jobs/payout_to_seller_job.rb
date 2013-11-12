@@ -12,5 +12,8 @@ class PayoutToSellerJob
       seller.secret_key
     )
     transaction.update_attribute(:status, "purchased")
+
+    PurchasedItemMailer.notify_seller(txn_id)
+    PurchasedItemMailer.notify_buyer(txn_id)
   end
 end
