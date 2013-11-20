@@ -23,6 +23,13 @@
       <% end %>
     </div>
     <div class="clear"></div>
+    <div class="messages-container">
+      <% [:notice, :alert, :error].each do |flash_type| %>
+        <% if flash[flash_type].present? %>
+          <div class="<%= flash_type %>"><%= flash[flash_type] %></div>
+        <% end %>
+      <% end %>
+    </div>
   </nav>
   <div class="container">
     <div class="column1">

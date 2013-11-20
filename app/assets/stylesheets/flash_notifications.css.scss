@@ -1,0 +1,24 @@
+.messages-container {
+  text-align: center;
+}
+.error, .alert, .notice {
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+ }
+.notice {
+  background: #B6F0E0;
+  color: #264409;
+  border-color: #21D8A5;
+}
+.error {
+  background: #FFC0C0;
+  border-color: #FF8080;
+}
+.alert {
+  background: #FFFFC2;
+  border-color: #FFFF66;
+}
