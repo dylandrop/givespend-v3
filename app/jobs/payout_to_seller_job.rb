@@ -1,10 +1,12 @@
 class PayoutToSellerJob
-  def self.distribute_payment txn_id
+  include Sidekiq::Worker
+
+  def perform txn_id
     transaction = Transaction.includes(item: [:user]).find(txn_id)
     item = transaction.item
     seller = item.user
     Stripe::Charge.create({
-      amount: (item.price * (1 - item.nonprofit_percentage / 100.0)).to_i,
+      amount: item.price,
       currency: 'usd',
       customer: transaction.stripe_customer_token,
       description: "Txn: #{txn_id} Item: #{item.id}",
@@ -12,8 +14,12 @@ class PayoutToSellerJob
       seller.secret_key
     )
     transaction.update_attribute(:status, "purchased")
-
-    PurchasedItemMailer.notify_seller(txn_id)
-    PurchasedItemMailer.notify_buyer(txn_id)
+    
+    PurchasedItemMailer.notify_seller(txn_id).deliver
+    PurchasedItemMailer.notify_buyer(txn_id).deliver
+  rescue Exception => e
+    logger.debug "#{e.exception}"
+    logger.debug "#{e.backtrace}"
+    raise e
   end
 end

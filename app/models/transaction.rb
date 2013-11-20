@@ -8,6 +8,7 @@ class Transaction < ActiveRecord::Base
       customer = Stripe::Customer.create(card: stripe_card_token)
       self.stripe_customer_token = customer.id
       save!
+      PayoutToSellerJob.perform_async(self.id)
     end
   rescue Stripe::InvalidRequestError => e
     logger.error "Stripe error while creating customer: #{e.message}"

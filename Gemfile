@@ -14,6 +14,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'aws-s3'
 gem 'mailjet'
+gem 'sidekiq'
 
 group :development do
   gem 'mailcatcher'
