@@ -1,3 +1,18 @@
 // Place all the styles related to the SellerDashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  margin-left: 70px;
+  margin-top: 30px;
+  background-color: white;
+  th {
+    text-align: left;
+    border-bottom: 1px solid grey;
+    background-color: #eee;
+  }
+  td, th {
+    padding: 5px;
+  }
+  border-spacing: 0;
+  border: 1px solid grey;
+}

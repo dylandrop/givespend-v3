@@ -19,6 +19,7 @@
         <%= link_to "SIGN IN", new_user_session_path, class: "nav-bar-link" %>
       <% else %>
         <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-bar-link" %>
+        <%= link_to "DASHBOARD", seller_dashboard_path, class: "nav-bar-link" %>
       <% end %>
     </div>
     <div class="clear"></div>

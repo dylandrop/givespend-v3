@@ -1,0 +1,23 @@
+<div class="description">
+  We've listed your last few transactions below.
+</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Sold to</th>
+    <th>Date sold</th>
+  </tr>
+  <% @transactions.each do |txn| %>
+    <tr>
+      <td><%= txn.item.name %></td>
+      <td>$<%= txn.item.price_in_dollars %></td>
+      <td><%= txn.email %></td>
+      <td><%= txn.created_at.strftime("%b %d, %Y") %></td>
+    </tr>
+  <% end %>
+  <tr>
+
+  </tr>
+</table>

@@ -1,2 +1,0 @@
-class SellerDashboardController < ApplicationController
-end
