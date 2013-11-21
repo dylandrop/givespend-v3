@@ -1,6 +1,6 @@
 <% if current_user && current_user.items.include?(@item) %>
   <div class="message-to-user">
-    Here's what your item will look like to everyone else.
+    Congrats, you're all done! Here's what your item will look like to everyone else.
     <br><br>
     You can <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<%= item_url(@item) %>&p[images][0]=<%= @item.image.content.url %>">share this on Facebook</a> or <a href="http://twitter.com/home?status=Check%20out%20<%= item_url(@item) %>">share this on Twitter</a>.
     
