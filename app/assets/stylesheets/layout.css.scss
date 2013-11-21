@@ -5,6 +5,12 @@ nav {
     margin: 30px 75px;
   }
 }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 body {
   background-color: #ECFFFD;
 }
