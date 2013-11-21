@@ -110,16 +110,18 @@ function drawVines(context, x, y, iterations) {
           var y2 = branches[j].points[3].y - Math.cos(Math.PI * angle / 180) * length;
           
           // Add to new branch array 
-          new_branches.push({
-            points:new Array(
-              branches[j].points[1],
-              branches[j].points[2],
-              branches[j].points[3],
-              {x:x2, y:y2}
-            ),
-            color: "rgb(0," + Math.floor(Math.random() * 150 + 50)+",0)",
-            angle:angle
-          });
+          if((y2 + 10 < context.canvas.clientHeight && y2 - 10 > 0) && (x2 + 10 < context.canvas.clientHeight && x2 - 10 > 0) ){
+            new_branches.push({
+              points:new Array(
+                branches[j].points[1],
+                branches[j].points[2],
+                branches[j].points[3],
+                {x:x2, y:y2}
+              ),
+              color: "rgb(0," + Math.floor(Math.random() * 150 + 50)+",0)",
+              angle:angle
+            });
+          }
         }
       }
 
