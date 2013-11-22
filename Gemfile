@@ -24,6 +24,17 @@ group :development do
   gem 'pry-debugger'
 end
 
+group :test do
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'capybara', '~> 2.1'
+  gem "shoulda-matchers"
+  gem 'selenium-webdriver'
+  gem "capybara-webkit", '~> 1.0', require: false
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
