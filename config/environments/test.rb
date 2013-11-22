@@ -36,5 +36,8 @@ GivespendV3::Application.configure do
   config.active_support.deprecation = :stderr
 
   config.action_mailer.default_url_options = { :host => 'localhost', port: '3000' }
-
+  config.app_generators do |c|
+    c.test_framework :rspec, :views => false, :fixture => true
+    c.fixture_replacement :factory_girl, :dir => 'spec/factories'
+  end
 end

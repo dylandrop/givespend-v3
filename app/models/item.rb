@@ -6,7 +6,10 @@ class Item < ActiveRecord::Base
   has_one :image, as: :imageable
   before_save :price_to_cents
   accepts_nested_attributes_for :image
-  
+
+  validates :nonprofit_url, :user, :name, :nonprofit_percentage, :price, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 1 }
+
   def price_in_dollars
     '%.2f' % (price.to_i/100.0)
   end
