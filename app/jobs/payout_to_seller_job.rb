@@ -14,9 +14,6 @@ class PayoutToSellerJob
       seller.secret_key
     )
     transaction.update_attribute(:status, "purchased")
-    
-    PurchasedItemMailer.notify_seller(txn_id).deliver
-    PurchasedItemMailer.notify_buyer(txn_id).deliver
   rescue Exception => e
     logger.debug "#{e.exception}"
     logger.debug "#{e.backtrace}"
