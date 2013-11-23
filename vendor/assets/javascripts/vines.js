@@ -103,7 +103,7 @@ function drawVines(context, x, y, iterations) {
           
 
           // Generate random length
-          var length = Math.random() * 15 + 10;
+          var length = Math.random() * 15 + 15;
           
           // Calculate new point
           var x2 = branches[j].points[3].x + Math.sin(Math.PI * angle / 180) * length;
