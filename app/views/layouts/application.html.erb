@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GivespendV3</title>
+  <title>givespend</title>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="/givespend-favicon.ico" />
   <%= javascript_include_tag "https://js.stripe.com/v2/", "application" %>
   <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -20,6 +21,7 @@
       <% else %>
         <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-bar-link" %>
         <%= link_to "DASHBOARD", seller_dashboard_path, class: "nav-bar-link" %>
+        <%= link_to "LIST A NEW ITEM", new_item_path, class: "nav-bar-link" %>
       <% end %>
     </div>
     <div class="clear"></div>

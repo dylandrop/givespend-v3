@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112014702) do
+ActiveRecord::Schema.define(:version => 20131124195353) do
 
   create_table "images", :force => true do |t|
     t.integer  "imageable_id"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(:version => 20131112014702) do
     t.integer  "price"
     t.string   "nonprofit_url"
     t.integer  "nonprofit_percentage"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "user_id"
+    t.integer  "transaction_count",    :default => 0
+    t.integer  "quantity"
   end
 
   create_table "transactions", :force => true do |t|

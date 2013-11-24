@@ -1,4 +1,6 @@
-<%= render partial: "layouts/progress_bar", locals: { status: 3, size: 3 } %><br><br>
+<% unless current_user.items.any? %>
+  <%= render partial: "layouts/progress_bar", locals: { status: 3, size: 3 } %>
+<% end %><br><br>
 <div class="description">
   Alright! Now that you're all set up, let's load up some information on what you'll be listing.
 </div>
@@ -12,6 +14,11 @@
   <div>
     <%= f.label :price, "Price, in the format XX.XX" %><br>
     <%= f.text_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :quantity, "What quantity of your item do you want to sell?" %><br>
+    <%= f.text_field :quantity %>
   </div>
 
   <div>

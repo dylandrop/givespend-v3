@@ -1,9 +1,10 @@
 class Transaction < ActiveRecord::Base
-  belongs_to :item
+  belongs_to :item, counter_cache: true
   attr_accessor :stripe_card_token
   attr_accessible :status, :stripe_customer_token, :stripe_card_token
 
   validates :email, presence: true
+  validate :enough_quantity_is_available
 
   after_create :process_payment_and_notifications
 
@@ -24,5 +25,9 @@ class Transaction < ActiveRecord::Base
   def process_payment_and_notifications
     PayoutToSellerJob.perform_async(self.id)
     PurchaseNotificationJob.perform_async(self.id)
+  end
+
+  def enough_quantity_is_available
+    errors.add(:base, "We've sold out of this item") if item.transaction_count >= item.quantity
   end
 end

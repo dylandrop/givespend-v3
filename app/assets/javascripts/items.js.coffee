@@ -13,3 +13,8 @@ class @ItemForm
     {
       mDec: '2'
     })
+    $("#item_quantity").autoNumeric('init', {
+      aSep: '',
+      vMax: '1000',
+      vMin: '0'
+    })

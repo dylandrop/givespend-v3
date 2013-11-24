@@ -1,39 +1,45 @@
-<div class="description">
-  All we need is your credit card info to complete your purchase. Givespend does not store your credit card information, but our payment processor Stripe, does. Givespend's service is free to use, so you will only be charged the price of the item. Our payment processor charges 2.9% + $0.30, which is taken out of the revenue of the transaction.
-</div>
-
-<div class="byline">
-  You will be charged $<%= @transaction.item.price_in_dollars %>
-</div>
-
-<%= form_for(@transaction, html: {id: "checkout_card_form", class: 'form-horizontal'}) do |form| %>
-  <%= hidden_field_tag :stripe_card_token %>
-  <%= form.hidden_field :item_id, value: @transaction.item_id %>
-  <div>
-    <%= label_tag :email, "Email", class: 'control-label', for: 'email' %><br>
-    <%= text_field_tag :email %>
+<% if @transaction.item.transaction_count < @transaction.item.quantity %>
+  <div class="description">
+    All we need is your credit card info to complete your purchase. Givespend does not store your credit card information, but our payment processor Stripe, does. Givespend's service is free to use, so you will only be charged the price of the item. Our payment processor charges 2.9% + $0.30, which is taken out of the revenue of the transaction.
   </div>
 
-  <div>
-    <%= label_tag :card_number, "Credit Card Number", class: 'control-label', for: 'card_number' %><br>
-    <%= text_field_tag :card_number, nil, name: nil %>
+  <div class="byline">
+    You will be charged $<%= @transaction.item.price_in_dollars %>
   </div>
 
-  <div>
-    <%= label_tag :card_code, "Security Code on Card (CVV)", class: 'control-label', for: 'card_code' %><br>
-    <%= text_field_tag :card_code, nil, name: nil %>
-  </div>
+  <%= form_for(@transaction, html: {id: "checkout_card_form", class: 'form-horizontal'}) do |form| %>
+    <%= hidden_field_tag :stripe_card_token %>
+    <%= form.hidden_field :item_id, value: @transaction.item_id %>
+    <div>
+      <%= label_tag :email, "Email", class: 'control-label', for: 'email' %><br>
+      <%= text_field_tag :email %>
+    </div>
 
-  <div>
-    <%= label_tag :card_month, "Card Expiration", class: 'control-label', for: 'card_month' %><br>
-    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", style: "width: 150px"} %>
-    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", style: "width: 66px"} %>
-  </div>
+    <div>
+      <%= label_tag :card_number, "Credit Card Number", class: 'control-label', for: 'card_number' %><br>
+      <%= text_field_tag :card_number, nil, name: nil %>
+    </div>
 
-  <div>
-    <%= form.submit "Submit" %>
+    <div>
+      <%= label_tag :card_code, "Security Code on Card (CVV)", class: 'control-label', for: 'card_code' %><br>
+      <%= text_field_tag :card_code, nil, name: nil %>
+    </div>
+
+    <div>
+      <%= label_tag :card_month, "Card Expiration", class: 'control-label', for: 'card_month' %><br>
+      <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", style: "width: 150px"} %>
+      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", style: "width: 66px"} %>
+    </div>
+
+    <div>
+      <%= form.submit "Submit" %>
+    </div>
+  <% end %>
+  <div id="stripe_error">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+<% else %>
+  <div class="description">
+    Looks like this item is too popular! We're all sold out. Check back later for updates.
   </div>
 <% end %>
-<div id="stripe_error">
-  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-</div>

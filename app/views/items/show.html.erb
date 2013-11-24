@@ -22,7 +22,12 @@
   <div class="byline centered">
     <%= @item.nonprofit_percentage %>% of each purchase goes to benefit <%= @item.nonprofit_url %>.
   </div>
-  
-  <%= link_to "Purchase now", new_transaction_path(item_id: @item.id), class: "purchase-link" %>
+  <% if @item.transaction_count < @item.quantity %>
+    <%= link_to "Purchase now", new_transaction_path(item_id: @item.id), class: "purchase-link" %>
+  <% else %>
+    <div class="purchase-link">
+      Looks like this item is too popular! We're all sold out.<br>Check back later for updates.
+    </div>
+  <% end %>
 </div>
 <br><br><br><br>

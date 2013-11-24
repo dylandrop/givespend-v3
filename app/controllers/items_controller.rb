@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(params[:item])
+    @item.quantity = params[:item][:quantity]
     if @item.save
       redirect_to @item
     else
