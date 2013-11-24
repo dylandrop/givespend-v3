@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create]
+
   layout 'no_columns', only: :show
+
   def new
     @item = Item.new(params[:item])
     @item.build_image
@@ -7,7 +10,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(params[:item])
-    @item.quantity = params[:item][:quantity]
     if @item.save
       redirect_to @item
     else

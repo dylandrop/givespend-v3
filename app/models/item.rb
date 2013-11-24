@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   attr_accessible :description, :name, :nonprofit_percentage, :nonprofit_url, :price,
-    :image_attributes
+    :image_attributes, :quantity
   belongs_to :user
   has_many :transactions
   has_one :image, as: :imageable

@@ -28,6 +28,6 @@ class Transaction < ActiveRecord::Base
   end
 
   def enough_quantity_is_available
-    errors.add(:base, "We've sold out of this item") if item.transaction_count >= item.quantity
+    errors.add(:base, "We've sold out of this item") if item.transactions_count >= item.quantity
   end
 end
